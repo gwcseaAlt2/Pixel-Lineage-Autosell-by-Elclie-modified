@@ -1,0 +1,15 @@
+{
+  "window_title": "Roblox",
+  "scan_interval": 0.2,
+  "click_cooldown": 0.5,
+  "targets": [
+    {
+      "name": "enemy",
+      "image": "images/enemy.png",
+      "threshold": 0.85,
+      "button": "left",
+      "offset": [0, 0],
+      "enabled": true
+    }
+  ]
+}

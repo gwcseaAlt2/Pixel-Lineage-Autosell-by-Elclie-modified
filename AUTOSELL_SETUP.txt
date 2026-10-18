@@ -1,0 +1,49 @@
+AUTO-SELL QUICK SETUP
+=====================
+
+What it does
+------------
+After a boss fight, and halfway through each land, the bot opens the gear menu and sells
+gear that isn't worth keeping. Locked and equipped items are never sold. If it can't read an
+item clearly, it keeps it.
+
+Weapons, helmets, chests and legs: the bot recognizes each piece by its icon and keeps a
+Legendary or Secret copy only if its flat MAGIC is in the top 5% of possible rolls for that
+piece (numbers come from the Pixel Lineage Drop Calculator). Epic and Common are sold.
+Pieces it doesn't recognize, relics and scrolls use the fixed rules at the top of autosell.py.
+
+Picking your own top %
+----------------------
+Type these in the bot window while it runs (press Enter after each):
+
+  help                 show the commands
+  items                list every piece and the MAGIC it needs to be kept
+  items hat            only pieces with "hat" in the name
+  top tempest hat 3    keep only the top 3% of Tempest Hats
+  top all 5            set every piece back to top 5%
+  T=52                 torment tier used when the bot reconnects
+
+Smaller number = pickier (top 1% keeps almost nothing, top 50% keeps half).
+Your choices are saved in autosell_settings.json and kept after a restart.
+
+Hotkeys
+-------
+  Ctrl+2  start / resume
+  Ctrl+3  pause
+  Ctrl+4  auto-sell on / off (on at start)
+  Ctrl+1  use the scroll first in each battle on / off
+
+Before the first real run
+-------------------------
+1. Lock (in game) anything you never want sold.
+2. Screen positions were measured on a 1920x1080 screen with this UI size. If your game UI is
+   a different size, clicks may land in the wrong place. Watch the first auto-sell.
+3. To test without selling: set DRY_RUN = True in autosell.py. It then clicks LOCK instead of
+   SELL on what it would sell, so you can see its choices. Set it back to False after.
+4. Every check is written to autosell_log\log.txt, with a picture of each item.
+
+Notes
+-----
+- The top % numbers assume torment runs and unforged (+0) gear, and only look at flat MAGIC.
+- Files for this feature: autosell.py, item_db.py, autosell_items.json, gear_reader.py,
+  gear_glyphs.npz, autosell_icons, autosell_padlock.png.
